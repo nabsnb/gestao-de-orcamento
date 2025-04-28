@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+}
+.content {
+    margin: 48px;
+}
+.overview {
+    box-sizing: border-box;
+    display: flex;
+    margin-top: 24px;
+    justify-content: flex-start;
+}
+.box {
+    margin: 0px 24px 32px 0px;
+    padding: 16px;
+    width: 200px;
+    border-radius: 12px;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.15);
+}
+.value {
+    margin-top: 8px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.form-section {
+    box-sizing: border-box;
+    display: flex;
+    margin-top: 24px;
+}
+.control-balance {
+    display: flex;
+}
+input {
+    border: 1px solid;
+    border-radius: 8px;
+    margin-right: 18px;
+    outline: none;
+}
+#description {
+    width: 250px;
+    height: 48px;
+
+}
+#amount {
+    width: 200px;
+    height: 48px;
+}
+input::placeholder {
+    font-size: 12px;
+    padding: 12px;
+}
+select {
+    border-radius: 8px;
+    width: 150px;
+    font-size: 12px;
+    padding: 12px;
+}
+button {
+    width: 150px;
+    height: 48px;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planeja+</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div class="content">
+
+            <!-- <div class="header">
+                <h1>Gerencie suas finanças com facilidade</h1>
+                <p>Acompanhe seus ganhos e despesas em um só lugar. <br>
+                    Planeje seu futuro com mais controle e viva com mais tranquilidade.
+                </p>
+            </div> -->
+            <div>
+                <h1>Dashboard</h1>
+            </div>
+            <section class="overview">
+                <div class="box balance">
+                    <div>
+                        <p>Saldo</p>
+                    </div>
+                    <div class="value">                        
+                        <span id="balance-value">R$ 0,00</span>
+                    </div>
+                </div>
+                <div class="box incomes">
+                    <div>
+                        <p>Entradas</p>
+                    </div>
+                    <div class="value">
+                        <span id="incomes-value">R$ 0,00</span>
+                    </div>
+                </div>
+                <div class="box expenses">
+                    <div>
+                        <p>Saídas</p>
+                    </div>
+                    <div class="value">
+                        <span id="expenses-value">R$ 0,00</span>
+                    </div>
+                </div>
+            </section>
+            <div class="balance">
+                <h2>Nova transação</h2>
+            </div>
+            <section class="form-section" id="incomeForm">
+                <form class="control-balance">
+                    <input type="text" id="description" name="description" placeholder="Descrição">
+                    <input type="number" id="amount" name="amount" placeholder="Valor">
+                    <!-- <input id="income" for="incom" name="income" placeholder="Valor"> -->
+                    <select name="type" id="type">
+                        <option value="entrada">Entrada</option>
+                        <option value="saida">Saida</option>
+                    </select>
+                    <button type="submit">Adicionar</button>
+                </form>
+            </section>
+        </div>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
