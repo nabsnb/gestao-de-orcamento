@@ -26,3 +26,5 @@ A cada registro o valor
 final do saldo, entradas
 e/ou saidas precisa 
 atualizar.
+
+os 3 campos são required

@@ -3,19 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+    </style>
     <title>Planeja+</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main>
         <div class="content">
-
-            <!-- <div class="header">
-                <h1>Gerencie suas finanças com facilidade</h1>
-                <p>Acompanhe seus ganhos e despesas em um só lugar. <br>
-                    Planeje seu futuro com mais controle e viva com mais tranquilidade.
-                </p>
-            </div> -->
             <div>
                 <h1>Dashboard</h1>
             </div>
@@ -25,7 +21,7 @@
                         <p>Saldo</p>
                     </div>
                     <div class="value">                        
-                        <span id="balance-value">R$ 0,00</span>
+                        <span id="balance-value"></span>
                     </div>
                 </div>
                 <div class="box incomes">
@@ -33,7 +29,7 @@
                         <p>Entradas</p>
                     </div>
                     <div class="value">
-                        <span id="incomes-value">R$ 0,00</span>
+                        <span id="incomes-value"></span>
                     </div>
                 </div>
                 <div class="box expenses">
@@ -41,25 +37,30 @@
                         <p>Saídas</p>
                     </div>
                     <div class="value">
-                        <span id="expenses-value">R$ 0,00</span>
+                        <span id="expenses-value"></span>
                     </div>
                 </div>
             </section>
             <div class="balance">
                 <h2>Nova transação</h2>
             </div>
-            <section class="form-section" id="incomeForm">
+            <section class="form-section">
                 <form class="control-balance">
                     <input type="text" id="description" name="description" placeholder="Descrição">
                     <input type="number" id="amount" name="amount" placeholder="Valor">
                     <!-- <input id="income" for="incom" name="income" placeholder="Valor"> -->
                     <select name="type" id="type">
-                        <option value="entrada">Entrada</option>
-                        <option value="saida">Saida</option>
+                        <option id="select">Selecione</option>
+                        <option value="Entrada">Entrada</option>
+                        <option value="Saida">Saida</option>
                     </select>
-                    <button type="submit">Adicionar</button>
+                    <button type="submit" id="button-submit">Adicionar</button>
                 </form>
             </section>
+            <div>
+                <ul id="transaction-list">
+                </ul>
+            </div>
         </div>
     </main>
     <script src="main.js"></script>
