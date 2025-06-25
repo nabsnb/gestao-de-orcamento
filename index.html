@@ -46,10 +46,12 @@
             </div>
             <section class="form-section">
                 <form class="control-balance">
-                    <input type="text" id="description" name="description" placeholder="Descrição">
-                    <input type="number" id="amount" name="amount" placeholder="Valor">
+                    <label for="">Descrição</label>
+                    <input type="text" id="description" class="validate" name="description" aria-placeholder="Descrição">
+                    <label for="">Valor</label>
+                    <input type="number" id="amount" class="validate" name="amount" aria-placeholder="Valor">
                     <!-- <input id="income" for="incom" name="income" placeholder="Valor"> -->
-                    <select name="type" id="type">
+                    <select name="type" id="type" class="validate">
                         <option id="select">Selecione</option>
                         <option value="Entrada">Entrada</option>
                         <option value="Saida">Saida</option>
