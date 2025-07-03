@@ -1,62 +1,62 @@
 * {
-    margin: 0;
-    font-family: Ubuntu, 'Sans-serif';
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Open-sans', sans-serif;
+    box-sizing: border-box;
+    color: rgb(26, 26, 26);
 }
-.content {
-    margin: 48px;
+body{
+    margin: 50px auto;
+    width: 70vw;
 }
 .overview {
-    box-sizing: border-box;
     display: flex;
-    margin-top: 24px;
-    justify-content: flex-start;
-}
-.box {
-    margin: 0px 24px 32px 0px;
-    padding: 16px;
-    width: 200px;
-    border-radius: 12px;
-    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.15);
-}
-.value {
-    margin-top: 8px;
-    font-size: 24px;
-    font-weight: bold;
-}
-.form-section {
-    box-sizing: border-box;
-    display: flex;
-    margin-top: 24px;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 12px;
 }
 .control-balance {
+    flex-direction: row;
+    margin: 12px;
+}
+h1 {
+    padding: 12px;
+}
+.balance {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 12px;
+    margin-bottom: 0px;
 }
 input {
-    border: 1px solid;
+    height: 28px;
     border-radius: 8px;
-    margin-right: 18px;
+    border-style: none;
+    padding: 6px;
+    background-color: aliceblue;
+    border: 1px solid #b1b1b1
+}
+input:focus, select:focus, button {
     outline: none;
+    box-shadow: none;
 }
-#description {
-    width: 250px;
-    height: 48px;
-
-}
-#amount {
-    width: 200px;
-    height: 48px;
-}
-input::placeholder {
-    font-size: 12px;
-    padding: 12px;
-}
-select {
+select, button {
+    height: 28px;
     border-radius: 8px;
-    width: 150px;
-    font-size: 12px;
-    padding: 12px;
+    width: 100px;
+    padding: 6px;
+    border-style: none;
+    outline: 1px solid #a4a4a4;
+    transition: 0.5s;
 }
-button {
-    width: 150px;
-    height: 48px;
+button:hover {
+    background-color:  rgb(188, 188, 188);
 }
+
+#transaction-list {
+    list-style: none;
+    margin: 24px 12px;
+}
+
