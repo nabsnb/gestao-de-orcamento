@@ -2,12 +2,11 @@ const form = document.querySelector('.form-section')
 const description = document.getElementById('description')
 const amount = document.getElementById('amount')
 const type = document.getElementById('type')
-const transaction = document.getElementById('transaction-list')
+const transactionList = document.getElementById('transaction-list')
 const expensesField = document.getElementById('expenses-value')
 const incomesField = document.getElementById('incomes-value')
 const balanceField = document.getElementById('balance-value')
-const expenses = []
-const incomes = []
+const transactions = []
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -15,9 +14,11 @@ form.addEventListener('submit', (e) => {
         return
     }
     createTransaction()
-    expensesField.innerText = calculateExpenses()
-    incomesField.innerText = calculateIncomes()
+    clearFields()
+    expensesField.innerText = calculateExpenses().toFixed(2)
+    incomesField.innerText = calculateIncomes().toFixed(2)
     totalBalance()
+    console.log(transactions)
 })
 
 function errorMessage(field, message) {
@@ -26,11 +27,16 @@ function errorMessage(field, message) {
     div.classList.add('error-message')
     field.insertAdjacentElement('afterend', div)
 }
-function fieldsIsValid() {
 
+function fieldsIsValid() {
+    
     let valid = true
 
-    for(let field of document.querySelectorAll('.validate')) {
+    for(let errorMessage of form.querySelectorAll('.error-message')){
+        errorMessage.remove()
+    }
+    
+    for(let field of document.querySelectorAll('.validate')){
         if(!field.value){
             errorMessage(field, `${field.ariaPlaceholder} não pode estar em branco`)
             valid = false;
@@ -38,33 +44,53 @@ function fieldsIsValid() {
     }
     if(type.value === 'Selecione'){
         errorMessage(type, 'Selecione o tipo de transação')
+        valid = false;
+    }
+    if(amount.value <= 0){
+        errorMessage(amount, 'Adicione um valor maior que 0')
+        valid = false;
     }
     return valid
 }
-
-function createTransaction() {
-    const li = document.createElement('li')
-    li.innerText = `${type.value} - ${description.value} R$ ${amount.value}`
-    transaction.appendChild(li)
-
-    if(type.value === 'Saida') {
-        expenses.push(Number(amount.value))
-    }
-    if(type.value === 'Entrada') {
-        incomes.push(Number(amount.value))
+function getValues() {
+    return {
+        id: Date.now(),
+        description: description.value,
+        amount: Number(amount.value),
+        type: type.value,
     }
 }
+
+function createTransaction() {
+    
+    const valuesUpdated = getValues()
+    const li = document.createElement('li')
+    const result = `${valuesUpdated.type} - ${valuesUpdated.description} R$ ${valuesUpdated.amount}`
+
+    li.innerText = result
+    transactionList.appendChild(li)
+    transactions.push(valuesUpdated)
+}
+
+function clearFields() {
+    amount.value = ''
+    description.value = ''
+    type.value = 'Selecione'
+}
+
 function calculateExpenses() {
-    const totalExpenses = expenses.reduce((acc, vlr) =>  acc + vlr, 0)
+    const transactionType = transactions.filter(transactions => transactions.type === 'Saida')
+    const totalExpenses = transactionType.reduce((acc, amount) =>  acc + amount.amount, 0)
     return totalExpenses
 }
 function calculateIncomes() {
-    const totalIncomes = incomes.reduce((acc, vlr) =>  acc + vlr, 0)
+    const transactionType = transactions.filter(transactions => transactions.type === 'Entrada')
+    const totalIncomes = transactionType.reduce((acc, amount) =>  acc + amount.amount, 0)
     return totalIncomes
 }
 function totalBalance() {
     const totalExpenses = calculateExpenses()
     const totalIncomes = calculateIncomes()
     const total = totalIncomes - totalExpenses
-    balanceField.innerText = total
+    balanceField.innerText = total.toFixed(2)
 }
